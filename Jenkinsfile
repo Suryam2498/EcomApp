@@ -17,6 +17,6 @@ node{
         {
             sh "docker login -u msuryam -p ${DockerHubPwd}"
         }
-        sh 'docker push msuryam/phpmysql_app'
+        sh 'docker push msuryam/sur_ecomm'
     }
 }
