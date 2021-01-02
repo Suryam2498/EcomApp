@@ -8,8 +8,8 @@ node{
     
     stage('Run Docker Compose File')
     {
-         git 'docker-compose build'
-        sh 'docker-compose up -d'
+         
+        sh 'docker build -t msuram/my-ecoomm:1.0 .'
     }
     stage('PUSH image to Docker Hub')
     {
