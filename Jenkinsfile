@@ -9,7 +9,7 @@ node{
     stage('Run Docker Compose File')
     {
          
-        sh 'docker build -t msuram/my-ecoomm:1.0 .'
+        sh 'docker build -t msuryam/ecomm-app .'
     }
     stage('PUSH image to Docker Hub')
     {
