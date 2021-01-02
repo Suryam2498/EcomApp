@@ -2,7 +2,7 @@ node{
 
     stage('SCM Checkout')
     {
-        git 'https://github.com/Suryam2498/EcomApp.git'
+        git 'https://github.com/VardhanNS/phpmysql-app'
     }
     
     stage('Run Docker Compose File')
