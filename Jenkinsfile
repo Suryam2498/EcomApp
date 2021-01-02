@@ -2,12 +2,13 @@ node{
 
     stage('SCM Checkout')
     {
+       
         git 'https://github.com/VardhanNS/phpmysql-app'
     }
     
     stage('Run Docker Compose File')
     {
-     
+         git 'docker-compose build'
         sh 'docker-compose up -d'
     }
     stage('PUSH image to Docker Hub')
