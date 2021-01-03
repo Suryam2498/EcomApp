@@ -20,7 +20,6 @@ node{
       // withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerhubPwd')]) {
       //      sh " sudo docker login -u msuryam -p ${dockerhubPwd}"
      //  }
-     
     
      sh 'sudo docker login -u msuryam -p suryam123'
       sh "sudo docker tag ecommapp_web msuryam/sur_ecomm:${BUILD_NUMBER}"
