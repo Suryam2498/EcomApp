@@ -6,18 +6,26 @@ node{
         git 'https://github.com/VardhanNS/phpmysql-app'
     }
     
-    stage('Run Docker Compose File')
+   stage('Run Docker Compose File')
     {
-         
-        sh 'docker build -t msuryam/ecomm-app .'
+        sh 'sudo docker rm -f php_app mysqli'
+       sh  'sudo docker-compose build'
+        sh 'sudo docker-compose up -d'
+   
     }
-    stage('PUSH image to Docker Hub')
+    
+     stage('PUSH image to Docker Hub')
     {
        
-        withCredentials([string(credentialsId: 'docker-pwd', variable: 'DockerHubPwd')]) 
-        {
-            sh "docker login -u msuryam -p ${DockerHubPwd}"
-        }
-        sh 'docker push msuryam/sur_ecomm'
+      // withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerhubPwd')]) {
+      //      sh " sudo docker login -u msuryam -p ${dockerhubPwd}"
+     //  }
+     
+    
+     sh 'sudo docker login -u msuryam -p suryam123'
+      sh "sudo docker tag ecommapp_web msuryam/sur_ecomm:${BUILD_NUMBER}"
+        sh "sudo docker push msuryam/sur_ecomm:${BUILD_NUMBER}"
     }
+    
+    
 }
